@@ -1,0 +1,10 @@
+name: 'Entity Galli'
+type: module
+description: 'Understanding Entities in D8.'
+package: Hookuser
+version: VERSION
+core: 8.x
+dependencies:
+  - field
+  - text
+hidden: false

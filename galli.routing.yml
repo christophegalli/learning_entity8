@@ -1,0 +1,34 @@
+galli.galli_view:
+  path: '/galli/{galli}'
+  defaults:
+    _entity_view: 'galli'
+  requirements:
+    _entity_access: 'galli.view'
+
+galli.info:
+  path: info
+  defaults:
+    _content: '\Drupal\galli\Controller\GalliController::respond'
+  requirements:
+    _access: 'TRUE'
+
+galli.machMal:
+  path: machen
+  defaults:
+    _content: '\Drupal\galli\Controller\GalliController::machMal'
+  requirements:
+    _access: 'TRUE'
+
+galli.galli.edit:
+  path: '/galli/{galli}/edit'
+  defaults:
+    _entity_form: 'galli.edit'
+  requirements:
+    _access: 'TRUE'
+
+galli.galli.add:
+  path: '/galli/add'
+  defaults:
+   _entity_form: 'galli.add'
+  requirements:
+   _access: 'TRUE'
