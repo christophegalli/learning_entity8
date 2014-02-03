@@ -1,1 +1,29 @@
 <?php
+
+
+function galli_theme() {
+  return array(
+    'node' => array(
+      'render element' => 'elements',
+      'template' => 'node',
+    ),
+    'node_search_admin' => array(
+      'render element' => 'form',
+    ),
+    'node_add_list' => array(
+      'variables' => array('content' => NULL),
+      'file' => 'node.pages.inc',
+    ),
+    'node_preview' => array(
+      'variables' => array('node' => NULL),
+      'file' => 'node.pages.inc',
+    ),
+    'node_edit_form' => array(
+      'render element' => 'form',
+      'template' => 'node-edit-form',
+    ),
+    'field__node__title' => array(
+      'base hook' => 'field',
+    ),
+  );
+}

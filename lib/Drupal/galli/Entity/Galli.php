@@ -19,6 +19,7 @@ use Drupal\Core\Language\Language;
  *   label = @Translation("Entity Galli"),
  *   controllers = {
  *     "storage" = "Drupal\Core\Entity\FieldableDatabaseStorageController",
+ *     "view_builder" = "Drupal\galli\GalliViewBuilder",
  *     "form" = {
  *       "default" = "Drupal\galli\GalliFormController",
  *       "edit" = "Drupal\galli\GalliFormController",
