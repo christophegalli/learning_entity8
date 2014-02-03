@@ -8,7 +8,8 @@
 namespace Drupal\galli;
 
 use Drupal\Core\Entity\EntityViewBuilder;
-
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityViewBuilderInterface;
 /**
  * Defines an entity view builder for a galli entity.
  *
@@ -21,21 +22,34 @@ class GalliViewBuilder extends EntityViewBuilder {
    */
   public function buildContent(array $entities, array $displays, $view_mode, $langcode = NULL) {
     parent::buildContent($entities, $displays, $view_mode, $langcode);
-    foreach ($entities as $entity) {
-      $entity->content['label'] = array(
-        '#markup' => check_plain($entity->label()),
-      );
-      $entity->content['separator'] = array(
-        '#markup' => ' | ',
-      );
-      $entity->content['view_mode'] = array(
-        '#markup' => check_plain($view_mode),
-      );
-      $entity->content['test'] = array(
-        '#markup' => 'Guten Tag',
-      );
-    }
 
+    foreach ($entities as $entity) {
+      $entity->content['galli']['id'] = $entity->id();
+      $entity->content['galli']['name'] = array(
+        '#markup' => $entity->getName(),
+        '#prefix' => '<div>',
+        '#suffix' => '</div>',
+      );
+
+      $entity->content['galli']['person_name'] = array(
+        '#markup' => $entity->getPersonName(),
+        '#prefix' => '<div>',
+        '#suffix' => '</div>',
+      );
+
+      $entity->content['galli']['person_first_name'] = array(
+        '#markup' => $entity->getPersonFirstName(),
+        '#prefix' => '<div>',
+        '#suffix' => '</div>',
+      );
+
+      $entity->content['galli']['person_location'] = array(
+        '#markup' => $entity->getPersonLocation(),
+        '#prefix' => '<div>',
+        '#suffix' => '</div>',
+      );
+
+    }
   }
 
 }

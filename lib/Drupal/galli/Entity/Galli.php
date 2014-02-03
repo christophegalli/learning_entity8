@@ -48,6 +48,36 @@ class Galli extends ContentEntityBase{
   /**
    * {@inheritdoc}
    */
+  public function getName() {
+    return $this->name->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getPersonName() {
+    return $this->person_name->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getPersonFirstName() {
+    return $this->person_first_name->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getPersonLocation() {
+    return $this->person_location->value;
+  }
+
+
+
+  /**
+   * {@inheritdoc}
+   */
   public static function baseFieldDefinitions($entity_type) {
     $fields['id'] = FieldDefinition::create('integer')
       ->setLabel(t('ID'))

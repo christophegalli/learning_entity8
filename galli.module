@@ -3,27 +3,19 @@
 
 function galli_theme() {
   return array(
-    'node' => array(
+    'galli' => array(
       'render element' => 'elements',
-      'template' => 'node',
-    ),
-    'node_search_admin' => array(
-      'render element' => 'form',
-    ),
-    'node_add_list' => array(
-      'variables' => array('content' => NULL),
-      'file' => 'node.pages.inc',
-    ),
-    'node_preview' => array(
-      'variables' => array('node' => NULL),
-      'file' => 'node.pages.inc',
-    ),
-    'node_edit_form' => array(
-      'render element' => 'form',
-      'template' => 'node-edit-form',
-    ),
-    'field__node__title' => array(
-      'base hook' => 'field',
+      'template' => 'galli',
     ),
   );
+}
+
+function template_preprocess_galli(&$variables) {
+  $elements = $variables['elements'];
+
+  $variables['galli']['id'] = $elements['galli']['id'];
+  $variables['galli']['name'] = $elements['galli']['name'];
+  $variables['galli']['person_name'] = $elements['galli']['person_name'];
+  $variables['galli']['person_first_name'] = $elements['galli']['person_first_name'];
+  $variables['galli']['person_location'] = $elements['galli']['person_location'];
 }
