@@ -1,0 +1,6 @@
+galli.add_action:
+  route_name: galli.galli_add
+  title: 'Add Galli Content'
+  appears_on:
+    - galli.galli_view
+    - view.galli_entities.page_1

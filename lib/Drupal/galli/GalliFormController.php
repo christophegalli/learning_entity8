@@ -72,10 +72,9 @@ class GalliFormController extends ContentEntityFormController {
       '#languages' => Language::STATE_ALL,
     );
 
+
     return $form;
   }
-
-
 
   /**
    * Overrides \Drupal\Core\Entity\EntityFormController::submit().
@@ -83,7 +82,7 @@ class GalliFormController extends ContentEntityFormController {
   public function submit(array $form, array &$form_state) {
     // Build the entity object from the submitted values.
     $entity = parent::submit($form, $form_state);
-
+    $form_state['redirect'] = 'galli-entities';
 
     return $entity;
   }

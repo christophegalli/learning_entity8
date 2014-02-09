@@ -24,25 +24,21 @@ class GalliViewBuilder extends EntityViewBuilder {
     parent::buildContent($entities, $displays, $view_mode, $langcode);
 
     foreach ($entities as $entity) {
-      $entity->content['galli']['id'] = $entity->id();
-      $entity->content['galli']['name'] = array(
+       $entity->content['galli']['name'] = array(
         '#markup' => $entity->getName(),
         '#prefix' => '<div>',
         '#suffix' => '</div>',
       );
-
       $entity->content['galli']['person_name'] = array(
         '#markup' => $entity->getPersonName(),
         '#prefix' => '<div>',
         '#suffix' => '</div>',
       );
-
       $entity->content['galli']['person_first_name'] = array(
         '#markup' => $entity->getPersonFirstName(),
         '#prefix' => '<div>',
         '#suffix' => '</div>',
       );
-
       $entity->content['galli']['person_location'] = array(
         '#markup' => $entity->getPersonLocation(),
         '#prefix' => '<div>',

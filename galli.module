@@ -1,5 +1,7 @@
 <?php
 
+use \Drupal\Core\Render\Element;
+use \Drupal\Core\Entity\EntityInterface;
 
 function galli_theme() {
   return array(
@@ -13,9 +15,41 @@ function galli_theme() {
 function template_preprocess_galli(&$variables) {
   $elements = $variables['elements'];
 
-  $variables['galli']['id'] = $elements['galli']['id'];
+  /*$variables['galli']['id'] = $elements['galli']['id'];
   $variables['galli']['name'] = $elements['galli']['name'];
   $variables['galli']['person_name'] = $elements['galli']['person_name'];
   $variables['galli']['person_first_name'] = $elements['galli']['person_first_name'];
   $variables['galli']['person_location'] = $elements['galli']['person_location'];
+*/
+
+  $variables['galli'] = $variables['elements']['#galli'];
+  /* @var $galli \Drupal\galli\Entity\Galli */
+  $galli = $variables['elements']['#galli'];
+
+  // Helpful $content variable for templates.
+  $variables += array('content' => array());
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+
 }
+
+
+function galli_menu_link_defaults() {
+
+  $links['galli/add'] = array(
+    'link_title' => 'Add Galli Content',
+    'route_name' => 'galli.galli_add',
+    'weight' => 10,
+  );
+
+  $links['galli.admin.structure.galli_settings'] = array(
+    'link_title' => 'Galli Settings',
+    'route_name' => 'galli.settings',
+    'parent' => 'system.admin.structure'
+  );
+
+  return $links;
+}
+
+

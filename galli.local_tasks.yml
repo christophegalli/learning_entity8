@@ -1,0 +1,17 @@
+galli.settings_tab:
+  route_name: galli.settings
+  title: 'Settings'
+  base_route: galli.settings
+galli.view:
+  route_name: galli.galli_view
+  base_route: galli.galli_view
+  title: 'View'
+galli.page_edit:
+  route_name: galli.galli.edit
+  base_route: galli.galli_view
+  title: Edit
+galli.delete_confirm:
+  route_name: galli.delete_confirm
+  base_route: galli.galli_view
+  title: Delete
+  weight: 10

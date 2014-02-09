@@ -4,7 +4,7 @@ function galli_schema() {
   $schema['galli'] = array(
     'description' => 'Stores galli items.',
     'fields' => array(
-      'id' => array(
+      'gid' => array(
         'type' => 'serial',
         'not null' => TRUE,
         'description' => 'Primary Key: Unique galli item ID.',
@@ -65,7 +65,7 @@ function galli_schema() {
         'default' => '',
       ),
     ),
-    'primary key' => array('id'),
+    'primary key' => array('gid'),
     'unique keys' => array(
       'uuid' => array('uuid'),
     ),

@@ -23,7 +23,8 @@ use Drupal\Core\Language\Language;
  *     "form" = {
  *       "default" = "Drupal\galli\GalliFormController",
  *       "edit" = "Drupal\galli\GalliFormController",
- *       "add" = "Drupal\galli\GalliFormController"
+ *       "add" = "Drupal\galli\GalliFormController",
+ *       "delete" = "Drupal\galli\GalliDeleteForm"
  *     },
  *     "translation" = "Drupal\content_translation\ContentTranslationController"
  *   },
@@ -32,18 +33,22 @@ use Drupal\Core\Language\Language;
  *   fieldable = TRUE,
  *   field_cache = FALSE,
  *   entity_keys = {
- *     "id" = "id",
+ *     "id" = "gid",
  *     "uuid" = "uuid",
  *     "label" = "name"
  *   },
  *   links = {
  *     "canonical" = "galli_person.render",
  *     "edit-form" = "galli_person.edit_entity_test",
- *     "admin-form" = "galli_person.admin_entity_test"
+ *     "admin-form" = "galli.settings"
  *   }
  * )
  */
 class Galli extends ContentEntityBase{
+
+  public function id() {
+    return $this->get('gid')->value;
+  }
 
   /**
    * {@inheritdoc}
@@ -74,12 +79,11 @@ class Galli extends ContentEntityBase{
   }
 
 
-
   /**
    * {@inheritdoc}
    */
   public static function baseFieldDefinitions($entity_type) {
-    $fields['id'] = FieldDefinition::create('integer')
+    $fields['gid'] = FieldDefinition::create('integer')
       ->setLabel(t('ID'))
       ->setDescription(t('The ID of the Galli Person entity.'))
       ->setReadOnly(TRUE);
@@ -131,7 +135,9 @@ class Galli extends ContentEntityBase{
 
     return $fields;
   }
+
 }
+
 
 
 

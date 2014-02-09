@@ -2,6 +2,7 @@ galli.galli_view:
   path: '/galli/{galli}'
   defaults:
     _entity_view: 'galli'
+    _title: 'One Entity'
   requirements:
     _entity_access: 'galli.view'
 
@@ -26,9 +27,24 @@ galli.galli.edit:
   requirements:
     _access: 'TRUE'
 
-galli.galli.add:
+galli.galli_add:
   path: '/galli/add'
   defaults:
    _entity_form: 'galli.add'
+   _title: 'Add new Galli Entity'
+  requirements:
+   _access: 'TRUE'
+
+galli.settings:
+  path: 'admin/config/galli_settings'
+  defaults:
+   _form: '\Drupal\galli\GalliSettingsForm'
+  requirements:
+   _access: 'TRUE'
+
+galli.delete_confirm:
+  path: '/galli/{galli}/delete'
+  defaults:
+    _entity_form: 'galli.delete'
   requirements:
    _access: 'TRUE'
