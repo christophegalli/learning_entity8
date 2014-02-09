@@ -4,6 +4,20 @@ core: 8.x
 description: ''
 status: true
 display:
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    display_options:
+      path: galli-entities
+      menu:
+        type: normal
+        title: Overview
+        description: ''
+        name: tools
+        weight: 10
+        context: '0'
   default:
     display_plugin: default
     id: default
@@ -66,6 +80,56 @@ display:
       row:
         type: 'entity:galli'
       fields:
+        gid:
+          id: gid
+          table: galli
+          field: gid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: gid
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: ''
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+          provider: views
         name:
           id: name
           table: galli
@@ -79,7 +143,7 @@ display:
             alter_text: false
             text: ''
             make_link: true
-            path: 'galli/[id]'
+            path: 'galli/[gid]'
             absolute: false
             external: false
             replace_spaces: false
@@ -329,20 +393,20 @@ display:
           hide_alter_empty: true
           plugin_id: standard
           provider: views
-        nothing_1:
-          id: nothing_1
+        nothing:
+          id: nothing
           table: views
           field: nothing
           relationship: none
           group_type: group
           admin_label: ''
-          label: View
+          label: Edit
           exclude: true
           alter:
             alter_text: true
-            text: view
+            text: edit
             make_link: true
-            path: 'galli/[id]'
+            path: 'galli/[gid]/edit'
             absolute: false
             external: false
             replace_spaces: false
@@ -379,20 +443,20 @@ display:
           hide_alter_empty: false
           plugin_id: custom
           provider: views
-        nothing:
-          id: nothing
+        nothing_1:
+          id: nothing_1
           table: views
           field: nothing
           relationship: none
           group_type: group
           admin_label: ''
-          label: Edit
+          label: Delete
           exclude: true
           alter:
             alter_text: true
-            text: edit
+            text: delete
             make_link: true
-            path: 'galli/[id]/edit'
+            path: 'galli/[gid]/delete'
             absolute: false
             external: false
             replace_spaces: false
@@ -478,14 +542,14 @@ display:
           empty_zero: false
           hide_alter_empty: true
           fields:
-            nothing_1: nothing_1
             nothing: nothing
-            id: '0'
+            nothing_1: nothing_1
+            gid: '0'
             name: '0'
             person_first_name: '0'
             person_name: '0'
+            field_address: '0'
             person_location: '0'
-            contextual_links: '0'
           destination: true
           plugin_id: dropbutton
           provider: views
@@ -497,20 +561,6 @@ display:
       empty: {  }
       relationships: {  }
       arguments: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
-    position: 1
-    display_options:
-      path: galli-entities
-      menu:
-        type: normal
-        title: Overview
-        description: ''
-        name: tools
-        weight: 10
-        context: '0'
 label: 'Galli Entities'
 module: views
 id: galli_entities
