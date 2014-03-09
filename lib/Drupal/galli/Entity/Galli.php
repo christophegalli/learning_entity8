@@ -10,18 +10,17 @@ use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Field\FieldDefinition;
 use Drupal\Core\Entity\EntityStorageControllerInterface;
 use Drupal\Core\Language\Language;
+use Drupal\Core\Entity\EntityTypeInterface;
 
 /**
  * Defines the Galli entity class.
  *
- * @EntityType(
+ * @ContentEntityType(
  *   id = "galli",
  *   label = @Translation("Entity Galli"),
  *   controllers = {
- *     "storage" = "Drupal\Core\Entity\FieldableDatabaseStorageController",
  *     "view_builder" = "Drupal\galli\GalliViewBuilder",
  *     "form" = {
- *       "default" = "Drupal\galli\GalliFormController",
  *       "edit" = "Drupal\galli\GalliFormController",
  *       "add" = "Drupal\galli\GalliFormController",
  *       "delete" = "Drupal\galli\GalliDeleteForm"
@@ -44,7 +43,7 @@ use Drupal\Core\Language\Language;
  *   }
  * )
  */
-class Galli extends ContentEntityBase{
+class Galli extends ContentEntityBase {
 
   public function id() {
     return $this->get('gid')->value;
@@ -82,7 +81,7 @@ class Galli extends ContentEntityBase{
   /**
    * {@inheritdoc}
    */
-  public static function baseFieldDefinitions($entity_type) {
+  public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields['gid'] = FieldDefinition::create('integer')
       ->setLabel(t('ID'))
       ->setDescription(t('The ID of the Galli Person entity.'))
